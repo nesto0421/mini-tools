@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>게임 닉네임 생성기</title>
+  <meta name="description" content="게임 닉네임을 무료로 자동 생성">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="container">
+  <h1>게임 닉네임 생성기</h1>
+  <p>버튼을 누르면 닉네임이 자동으로 생성됩니다.</p>
+
+  <div class="controls">
+    <select id="style">
+      <option value="cool">간지</option>
+      <option value="cute">귀여움</option>
+      <option value="simple">심플</option>
+    </select>
+    <button onclick="generate()">닉네임 생성</button>
+  </div>
+
+  <ul id="result"></ul>
+  <button class="regen" onclick="generate()">다시 생성 🔄</button>
+</main>
+
+<script>
+const data = {
+  cool: ["Shadow", "Blaze", "Rogue", "Venom", "Night"],
+  cute: ["Mimi", "Lulu", "Coco", "Dudu", "Bori"],
+  simple: ["Neo", "Ace", "Zen", "Max", "Bit"]
+};
+
+function random(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generate() {
+  const style = document.getElementById("style").value;
+  const list = document.getElementById("result");
+  list.innerHTML = "";
+
+  for (let i = 0; i < 7; i++) {
+    const name = random(data[style]) + Math.floor(Math.random() * 1000);
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${name}</span>
+      <button onclick="copyText('${name}')">복사</button>
+    `;
+    list.appendChild(li);
+  }
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text);
+  alert("복사됨: " + text);
+}
+</script>
+
+</body>
+</html>

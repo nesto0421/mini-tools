@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  margin: 0;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 16px;
+}
+
+.box {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  border: 2px solid #222;
+}
+
+.main-btn, .regen, button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+#result {
+  list-style: none;
+  padding: 0;
+}
+
+#result li {
+  display: flex;
+  justify-content: space-between;
+  background: #f2f2f2;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
